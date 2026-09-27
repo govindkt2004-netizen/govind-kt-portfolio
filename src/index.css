@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-anton: 'Anton', sans-serif;
+  --font-oswald: 'Oswald', sans-serif;
+  --font-bodoni: 'Bodoni Moda', serif;
+  --font-cinzel: 'Cinzel', serif;
+  --font-outfit: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  color-scheme: dark;
+  --ink: #de1b1c;
+  --ink-hot: #ff2a2b;
+  --paper: #ededed;
+  --black: #000;
+  --dim: #8a8a8a;
+  --dimmer: #4e4e4e;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.font-anton {
+  font-family: 'Anton', sans-serif;
+}
+.font-oswald {
+  font-family: 'Oswald', sans-serif;
+}
+.font-bodoni {
+  font-family: 'Bodoni Moda', serif;
+}
+
+/* Distressed red wordmark matching reference artwork */
+.wordmark-distressed-red {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 0.84;
+  text-transform: uppercase;
+  color: #de1b1c;
+  background-color: #de1b1c;
+  background-image: url('/tex/grunge.png');
+  background-size: 320px;
+  background-blend-mode: multiply;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: saturate(1.4) contrast(1.15) brightness(1.15) drop-shadow(0 0 45px rgba(222, 27, 28, 0.45));
+}
+
+/* Distressed silver/white wordmark */
+.wordmark-distressed {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(200, 215, 235, 0.75) 45%, rgba(60, 75, 100, 0.3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 50px rgba(6, 182, 212, 0.25));
+}
+
+/* Inverted chips (.chip from reference) */
+.chip-inverted {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.25em 0.55em 0.22em;
+  background: #ededed;
+  color: #060606;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(10px, 0.85vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 1px;
+}
+
+/* Chamfered HUD header rule */
+.hdr__rule polyline {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 0;
+  animation: drawRule 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawRule {
+  from { stroke-dashoffset: 2400; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Floor reflection and wet stage effects */
+.reflective-floor {
+  background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(222, 27, 28, 0.15) 0%, rgba(6, 182, 212, 0.08) 35%, rgba(5, 7, 15, 0.95) 75%, #030306 100%);
+}
+
+.rim-light-cyan {
+  filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.45));
+}
+
+.rim-light-amber {
+  filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.45));
+}
+
+/* Custom glowing and blur styles */
+.glow-cyan {
+  box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.35);
+}
+
+.glow-violet {
+  box-shadow: 0 0 30px -5px rgba(139, 92, 246, 0.35);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.35);
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 50%, #64748b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #fef08a 0%, #eab308 50%, #ca8a04 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* Subtle grid backdrop */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-dot-matrix {
+  background-image: radial-gradient(rgba(6, 182, 212, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom Cursor: Hide default browser cursor on desktop screens */
+@media (pointer: fine) {
+  body, a, button, [role="button"], input, textarea, select, .cursor-pointer {
+    cursor: none !important;
+  }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
