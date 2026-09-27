@@ -80,13 +80,13 @@ export const MonumentalHero: React.FC<MonumentalHeroProps> = ({
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       {/* TOP ROW: Clean Professional Status Pill & Controls */}
-      <div className="relative z-30 flex items-center justify-between gap-4 max-w-7xl w-full mx-auto text-xs">
+      <div className="relative z-30 flex flex-col items-center justify-center gap-3 max-w-7xl w-full mx-auto text-xs sm:flex-row sm:justify-between sm:items-center">
         <motion.div
           key={`status-${animIteration}`}
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur-md shadow-sm"
+          className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur-md shadow-sm mx-auto sm:mx-0"
         >
           <span className="flex h-2 w-2 relative">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -102,7 +102,7 @@ export const MonumentalHero: React.FC<MonumentalHeroProps> = ({
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.95, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-3"
+          className="flex items-center gap-3 mx-auto sm:mx-0"
         >
           <button
             onClick={handleReplay}
@@ -159,14 +159,14 @@ export const MonumentalHero: React.FC<MonumentalHeroProps> = ({
 
         {/* LAYER A: Massive Wordmark BEHIND the Figure */}
         <div
-          className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0"
+          className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 px-2 sm:px-0"
           style={{
             transform: `translate3d(${mousePos.x * -20}px, ${mousePos.y * -14}px, 0)`,
             transition: 'transform 0.15s ease-out',
           }}
         >
           {/* Aesthetic Letter-by-Letter Entrance */}
-          <div className="flex items-center justify-center tracking-[-0.03em] leading-[0.82] overflow-visible">
+          <div className="flex items-end justify-center tracking-[-0.03em] leading-[0.68] w-full max-w-[1600px] px-3 overflow-visible">
             {letters.map((char, index) => (
               <motion.div
                 key={`char-${animIteration}-${index}`}
@@ -212,7 +212,7 @@ export const MonumentalHero: React.FC<MonumentalHeroProps> = ({
                   className="absolute inset-0 bg-radial from-[#de1b1c]/60 via-[#ff2a2b]/30 to-transparent blur-xl pointer-events-none rounded-full"
                 />
 
-                <span className="font-anton text-[22vw] sm:text-[19vw] lg:text-[17vw] leading-[0.82] text-center wordmark-distressed-red uppercase block pointer-events-auto cursor-pointer">
+                <span className="font-anton text-[clamp(6.5rem,18vw,18rem)] leading-[0.68] text-center wordmark-distressed-red uppercase block pointer-events-auto cursor-pointer select-none">
                   {char}
                 </span>
               </motion.div>
@@ -225,7 +225,7 @@ export const MonumentalHero: React.FC<MonumentalHeroProps> = ({
             initial={{ opacity: 0, y: 15, letterSpacing: '0.15em' }}
             animate={{ opacity: 1, y: 0, letterSpacing: '0.42em' }}
             transition={{ duration: 0.85, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-3 sm:gap-6 text-[#8a8a8a] font-oswald text-[11px] sm:text-xs uppercase -mt-2 sm:-mt-4"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-6 text-[#8a8a8a] font-oswald text-[9px] sm:text-xs uppercase -mt-2 sm:-mt-4 text-center"
           >
             <span>SOFTWARE</span>
             <span className="text-[#de1b1c] animate-pulse">•</span>
@@ -253,7 +253,7 @@ export const MonumentalHero: React.FC<MonumentalHeroProps> = ({
             delay: 0.3,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="relative z-20 flex flex-col items-center justify-end h-full max-h-[600px] sm:max-h-[700px] w-auto transform-gpu"
+          className="relative z-20 flex flex-col items-center justify-end h-full max-h-[600px] sm:max-h-[700px] w-auto transform-gpu -mt-10 sm:-mt-12"
           style={{
             transform: `translate3d(${mousePos.x * 16}px, ${mousePos.y * 8}px, 0)`,
             transition: 'transform 0.12s ease-out',
